@@ -266,12 +266,18 @@
                                 Browse Categories
                             </a>
 
-                            <div class="dropdown-menu ">
+                            <div class="dropdown-menu">
                                 <nav class="side-nav">
                                     <ul class="menu-vertical sf-arrows">
-                                        <li class="megamenu-container">
+                                        <li><a href="#">Electronics</a></li>
+                                        <li><a href="#">Furniture</a></li>
+                                        <li><a href="#">Cooking</a></li>
+                                        <li><a href="#">Clothing</a></li>
+                                        <li><a href="#">Home Appliances</a></li>
+                                        <li><a href="#">Healthy & Beauty</a></li>
+                                    <div>
+                                        {{-- <li class="megamenu-container">   
                                             <a class="sf-with-ul" href="#">Electronics</a>
-
                                             <div class="megamenu">
                                                 <div class="row no-gutters">
                                                     <div class="col-md-8">
@@ -337,8 +343,9 @@
                                                     </div><!-- End .col-md-4 -->
                                                 </div><!-- End .row -->
                                             </div><!-- End .megamenu -->
-                                        </li>
-                                        <li class="megamenu-container">
+                                        </li> --}}
+
+                                        {{-- <li class="megamenu-container">
                                             <a class="sf-with-ul" href="#">Furniture</a>
 
                                             <div class="megamenu">
@@ -405,8 +412,9 @@
                                                     </div><!-- End .col-md-4 -->
                                                 </div><!-- End .row -->
                                             </div><!-- End .megamenu -->
-                                        </li>
-                                        <li class="megamenu-container">
+                                        </li> --}}
+
+                                        {{-- <li class="megamenu-container">
                                             <a class="sf-with-ul" href="#">Cooking</a>
 
                                             <div class="megamenu">
@@ -481,8 +489,9 @@
                                                     </div><!-- End .row -->
                                                 </div><!-- End .menu-col -->
                                             </div><!-- End .megamenu -->
-                                        </li>
-                                        <li class="megamenu-container">
+                                        </li> --}}
+
+                                        {{-- <li class="megamenu-container">
                                             <a class="sf-with-ul" href="#">Clothing</a>
 
                                             <div class="megamenu">
@@ -586,20 +595,14 @@
                                                     </div><!-- End .row -->
                                                 </div><!-- End .menu-brands -->
                                             </div><!-- End .megamenu -->
-                                        </li>
-                                        <li><a href="#">Home Appliances</a></li>
-                                        <li><a href="#">Healthy & Beauty</a></li>
-                                        <li><a href="#">Shoes & Boots</a></li>
-                                        <li><a href="#">Travel & Outdoor</a></li>
-                                        <li><a href="#">Smart Phones</a></li>
-                                        <li><a href="#">TV & Audio</a></li>
-                                        <li><a href="#">Gift Ideas</a></li>
+                                        </li> --}}  
+                                    </div> 
                                     </ul><!-- End .menu-vertical -->
                                 </nav><!-- End .side-nav -->
                             </div><!-- End .dropdown-menu -->
                         </div><!-- End .category-dropdown -->
                     </div><!-- End .col-lg-3 -->
-                    <div class="header-center">
+                    <div class="header-center justify-content-center">
                         <nav class="main-nav">
                             <ul class="menu sf-arrows">
                                 <li class="megamenu-container active">
@@ -662,29 +665,14 @@
                                     <a href="#" class="sf-with-ul">Pages</a>
 
                                     <ul>
-                                        <li>
-                                            <a href="about.html" class="sf-with-ul">About</a>
-
-                                            <ul>
-                                                <li><a href="about.html">About 01</a></li>
-                                                <li><a href="about-2.html">About 02</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="contact.html" class="sf-with-ul">Contact</a>
-
-                                            <ul>
-                                                <li><a href="contact.html">Contact 01</a></li>
-                                                <li><a href="contact-2.html">Contact 02</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="login.html">Login</a></li>
+                                        <li><a href="{{route('about')}}">About</a></li>
+                                        <li><a href="login.html">Contact</a></li>
+                                        <li><a href="{{route('login')}}">Login</a></li>
                                         <li><a href="faq.html">FAQs</a></li>
-                                        <li><a href="404.html">Error 404</a></li>
                                         <li><a href="coming-soon.html">Coming Soon</a></li>
                                     </ul>
                                 </li>
-                                <li>
+                                {{-- <li>
                                     <a href="blog.html" class="sf-with-ul">Blog</a>
 
                                     <ul>
@@ -725,27 +713,8 @@
                                             </ul>
                                         </li>
                                     </ul>
-                                </li>
-                                <li>
-                                    <a href="elements-list.html" class="sf-with-ul">Elements</a>
-
-                                    <ul>
-                                        <li><a href="elements-products.html">Products</a></li>
-                                        <li><a href="elements-typography.html">Typography</a></li>
-                                        <li><a href="elements-titles.html">Titles</a></li>
-                                        <li><a href="elements-banners.html">Banners</a></li>
-                                        <li><a href="elements-product-category.html">Product Category</a></li>
-                                        <li><a href="elements-video-banners.html">Video Banners</a></li>
-                                        <li><a href="elements-buttons.html">Buttons</a></li>
-                                        <li><a href="elements-accordions.html">Accordions</a></li>
-                                        <li><a href="elements-tabs.html">Tabs</a></li>
-                                        <li><a href="elements-testimonials.html">Testimonials</a></li>
-                                        <li><a href="elements-blog-posts.html">Blog Posts</a></li>
-                                        <li><a href="elements-portfolio.html">Portfolio</a></li>
-                                        <li><a href="elements-cta.html">Call to Action</a></li>
-                                        <li><a href="elements-icon-boxes.html">Icon Boxes</a></li>
-                                    </ul>
-                                </li>
+                                </li> --}}
+                                
                             </ul><!-- End .menu -->
                         </nav><!-- End .main-nav -->
                     </div><!-- End .col-lg-9 -->

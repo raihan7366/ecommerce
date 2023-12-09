@@ -98,6 +98,10 @@ Route::get('/product', function () {
     return view('frontend/product/index');
 })->name('product');
 
+Route::get('/about', function () {
+    return view('frontend/about/index');
+})->name('about');
+
 Route::get('/wishlist', function () {
     return view('frontend/wishlist/index');
 })->name('wishlist');
@@ -105,5 +109,3 @@ Route::get('/wishlist', function () {
 Route::get('/productDetails', function () {
     return view('frontend/productDetails/index');
 })->name('productDetails');
-
-
