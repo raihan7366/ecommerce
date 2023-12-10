@@ -16,6 +16,7 @@ use App\Http\Controllers\Backend\PaymentController as payments;
 use App\Http\Controllers\Backend\StockController as stocks;
 use App\Http\Controllers\Backend\SettingController as settings;
 use App\Http\Controllers\Backend\ReviewController as reviews;
+use App\Http\Controllers\CartController;
 
 use App\Http\Controllers\Customer\AuthController as cauth;
 
@@ -95,8 +96,12 @@ Route::get('/home', function () {
 })->name('home');
 
 Route::get('/product', function () {
-    return view('frontend/product/index');
+    return view('frontend.product.index');
 })->name('product');
+
+// product
+Route::get('product', [products::class, 'frontIndex'])->name('product');
+
 
 Route::get('/about', function () {
     return view('frontend/about/index');
@@ -109,3 +114,15 @@ Route::get('/wishlist', function () {
 Route::get('/productDetails', function () {
     return view('frontend/productDetails/index');
 })->name('productDetails');
+
+Route::get('/cart', function () {
+    return view('frontend/cart/index');
+})->name('cart');
+
+
+// cart
+Route::get('/', [CartController::class, 'index']);  
+Route::get('cart', [CartController::class, 'cart'])->name('cart');
+Route::get('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add.to.cart');
+Route::patch('update-cart', [CartController::class, 'update'])->name('update.cart');
+Route::delete('remove-from-cart', [CartController::class, 'remove'])->name('remove.from.cart');

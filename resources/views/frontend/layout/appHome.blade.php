@@ -8,36 +8,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>@yield('title',env('APP_NAME'))</title>
+    <title>@yield('title', env('APP_NAME'))</title>
     <meta name="keywords" content="HTML5 Template">
     <meta name="description" content="Molla - Bootstrap eCommerce Template">
     <meta name="author" content="p-themes">
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180"
-        href="{{asset('public/frontend/assets/images/icons/apple-touch-icon.png')}}">
+        href="{{ asset('public/frontend/assets/images/icons/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32"
-        href="{{asset('public/frontend/assets/images/icons/favicon-32x32.png')}}">
+        href="{{ asset('public/frontend/assets/images/icons/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16"
-        href="{{asset('public/frontend/assets/images/icons/favicon-16x16.png')}}">
-    <link rel="manifest" href="{{asset('public/frontend/assets/images/icons/site.html')}}">
-    <link rel="mask-icon" href="{{asset('public/frontend/assets/images/icons/safari-pinned-tab.svg')}}" color="#666666">
-    <link rel="shortcut icon" href="{{asset('public/frontend/assets/images/icons/favicon.ico')}}">
+        href="{{ asset('public/frontend/assets/images/icons/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('public/frontend/assets/images/icons/site.html') }}">
+    <link rel="mask-icon" href="{{ asset('public/frontend/assets/images/icons/safari-pinned-tab.svg') }}"
+        color="#666666">
+    <link rel="shortcut icon" href="{{ asset('public/frontend/assets/images/icons/favicon.ico') }}">
     <meta name="apple-mobile-web-app-title" content="Molla">
     <meta name="application-name" content="Molla">
     <meta name="msapplication-TileColor" content="#cc9966">
-    <meta name="msapplication-config" content="{{asset('public/frontend/assets/images/icons/browserconfig.xml')}}">
+    <meta name="msapplication-config" content="{{ asset('public/frontend/assets/images/icons/browserconfig.xml') }}">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet"
-        href="{{asset('public/frontend/assets/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css')}}">
+        href="{{ asset('public/frontend/assets/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css') }}">
     <!-- Plugins CSS File -->
-    <link rel="stylesheet" href="{{asset('public/frontend/assets/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('public/frontend/assets/css/plugins/owl-carousel/owl.carousel.css')}}">
-    <link rel="stylesheet" href="{{asset('public/frontend/assets/css/plugins/magnific-popup/magnific-popup.css')}}">
-    <link rel="stylesheet" href="{{asset('public/frontend/assets/css/plugins/jquery.countdown.css')}}">
+    <link rel="stylesheet" href="{{ asset('public/frontend/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/frontend/assets/css/plugins/owl-carousel/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/frontend/assets/css/plugins/magnific-popup/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/frontend/assets/css/plugins/jquery.countdown.css') }}">
     <!-- Main CSS File -->
-    <link rel="stylesheet" href="{{asset('public/frontend/assets/css/style.css')}}">
-    <link rel="stylesheet" href="{{asset('public/frontend/assets/css/skins/skin-demo-13.css')}}">
-    <link rel="stylesheet" href="{{asset('public/frontend/assets/css/demos/demo-13.css')}}">
+    <link rel="stylesheet" href="{{ asset('public/frontend/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/frontend/assets/css/skins/skin-demo-13.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/frontend/assets/css/demos/demo-13.css') }}">
 </head>
 
 <body>
@@ -79,12 +80,12 @@
                                         </div><!-- End .header-dropdown -->
                                     </li>
                                     <li>
-                                        @if(request()->session()->get('customerLogin'))
-                                        <a href="{{route('customerlogOut')}}" >Log Out</a> 
+                                        @if (request()->session()->get('customerLogin'))
+                                            <a href="{{ route('customerlogOut') }}">Log Out</a>
                                         @else
-                                        <a href="{{route('customerLogin')}}" >Login</a> 
-                                        <span> | </span>
-                                        <a href="{{route('customerRegister')}}" >Register</a>
+                                            <a href="{{ route('customerLogin') }}">Login</a>
+                                            <span> | </span>
+                                            <a href="{{ route('customerRegister') }}">Register</a>
                                         @endif
                                     </li>
                                 </ul>
@@ -103,7 +104,7 @@
                         </button>
 
                         <a href="index.html" class="logo">
-                            <img src="{{asset('public/frontend/assets/images/demos/demo-13/logo.png')}}"
+                            <img src="{{ asset('public/frontend/assets/images/demos/demo-13/logo.png') }}"
                                 alt="Molla Logo" width="105" height="25">
                         </a>
                     </div><!-- End .header-left -->
@@ -136,7 +137,8 @@
                                     <label for="q" class="sr-only">Search</label>
                                     <input type="search" class="form-control" name="q" id="q"
                                         placeholder="Search product ..." required>
-                                    <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
+                                    <button class="btn btn-primary" type="submit"><i
+                                            class="icon-search"></i></button>
                                 </div><!-- End .header-search-wrapper -->
                             </form>
                         </div><!-- End .header-search -->
@@ -176,75 +178,62 @@
                                 </div><!-- End .dropdown-menu -->
                             </div><!-- End .compare-dropdown -->
 
-                            <a href="{{route('wishlist')}}" class="wishlist-link">
+                            <a href="{{ route('wishlist') }}" class="wishlist-link">
                                 <i class="icon-heart-o"></i>
                                 <span class="wishlist-count">3</span>
                                 <span class="wishlist-txt">Wishlist</span>
                             </a>
 
                             <div class="dropdown cart-dropdown">
-                                <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false" data-display="static">
+                                <a href="{{ route('cart') }}" class="dropdown-toggle" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                    data-display="static">
                                     <i class="icon-shopping-cart"></i>
-                                    <span class="cart-count">2</span>
+                                    <span class="cart-count">{{ count((array) session('cart')) }}</span>
                                     <span class="cart-txt">Cart</span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <div class="dropdown-cart-products">
-                                        <div class="product">
-                                            <div class="product-cart-details">
-                                                <h4 class="product-title">
-                                                    <a href="product.html">Beige knitted elastic runner shoes</a>
-                                                </h4>
+                                        @php $total = 0 @endphp
+                                        @foreach ((array) session('cart') as $id => $details)
+                                            @php $total += $details['price'] * $details['quantity'] @endphp
+                                        @endforeach
+                                        @if (session('cart'))
+                                            @foreach (session('cart') as $id => $details)
+                                                <div class="product">
+                                                    <div class="product-cart-details">
+                                                        <h4 class="product-title">
+                                                            <a href="product.html">{{ $details['name_en'] }}</a>
+                                                        </h4>
 
-                                                <span class="cart-product-info">
-                                                    <span class="cart-product-qty">1</span>
-                                                    x $84.00
-                                                </span>
-                                            </div><!-- End .product-cart-details -->
+                                                        <span class="cart-product-info">
+                                                            <span class="cart-product-qty">{{ $details['quantity'] }}</span>
+                                                            x ${{ $details['price'] }}
+                                                        </span>
+                                                    </div><!-- End .product-cart-details -->
 
-                                            <figure class="product-image-container">
-                                                <a href="product.html" class="product-image">
-                                                    <img src="{{asset('public/frontend/assets/images/products/cart/product-1.jpg')}}"
-                                                        alt="product">
-                                                </a>
-                                            </figure>
-                                            <a href="#" class="btn-remove" title="Remove Product"><i
-                                                    class="icon-close"></i></a>
-                                        </div><!-- End .product -->
-
-                                        <div class="product">
-                                            <div class="product-cart-details">
-                                                <h4 class="product-title">
-                                                    <a href="product.html">Blue utility pinafore denim dress</a>
-                                                </h4>
-
-                                                <span class="cart-product-info">
-                                                    <span class="cart-product-qty">1</span>
-                                                    x $76.00
-                                                </span>
-                                            </div><!-- End .product-cart-details -->
-
-                                            <figure class="product-image-container">
-                                                <a href="product.html" class="product-image">
-                                                    <img src="{{asset('public/frontend/assets/images/products/cart/product-2.jpg')}}"
-                                                        alt="product">
-                                                </a>
-                                            </figure>
-                                            <a href="#" class="btn-remove" title="Remove Product"><i
-                                                    class="icon-close"></i></a>
-                                        </div><!-- End .product -->
+                                                    <figure class="product-image-container">
+                                                        <a href="product.html" class="product-image">
+                                                            <img src="{{ asset('public/uploads/products/' . $details['image']) }}"
+                                                                alt="product">
+                                                        </a>
+                                                    </figure>
+                                                    <a href="#" class="btn-remove" title="Remove Product"><i
+                                                            class="icon-close"></i></a>
+                                                </div><!-- End .product -->
+                                            @endforeach
+                                        @endif
                                     </div><!-- End .cart-product -->
 
                                     <div class="dropdown-cart-total">
                                         <span>Total</span>
 
-                                        <span class="cart-total-price">$160.00</span>
+                                        <span class="cart-total-price">${{$total}}</span>
                                     </div><!-- End .dropdown-cart-total -->
 
                                     <div class="dropdown-cart-action">
-                                        <a href="cart.html" class="btn btn-primary">View Cart</a>
+                                        <a href="{{ route('cart') }}" class="btn btn-primary">View Cart</a>
                                         <a href="checkout.html"
                                             class="btn btn-outline-primary-2"><span>Checkout</span><i
                                                 class="icon-long-arrow-right"></i></a>
@@ -275,8 +264,8 @@
                                         <li><a href="#">Clothing</a></li>
                                         <li><a href="#">Home Appliances</a></li>
                                         <li><a href="#">Healthy & Beauty</a></li>
-                                    <div>
-                                        {{-- <li class="megamenu-container">   
+                                        <div>
+                                            {{-- <li class="megamenu-container">   
                                             <a class="sf-with-ul" href="#">Electronics</a>
                                             <div class="megamenu">
                                                 <div class="row no-gutters">
@@ -345,7 +334,7 @@
                                             </div><!-- End .megamenu -->
                                         </li> --}}
 
-                                        {{-- <li class="megamenu-container">
+                                            {{-- <li class="megamenu-container">
                                             <a class="sf-with-ul" href="#">Furniture</a>
 
                                             <div class="megamenu">
@@ -414,7 +403,7 @@
                                             </div><!-- End .megamenu -->
                                         </li> --}}
 
-                                        {{-- <li class="megamenu-container">
+                                            {{-- <li class="megamenu-container">
                                             <a class="sf-with-ul" href="#">Cooking</a>
 
                                             <div class="megamenu">
@@ -491,7 +480,7 @@
                                             </div><!-- End .megamenu -->
                                         </li> --}}
 
-                                        {{-- <li class="megamenu-container">
+                                            {{-- <li class="megamenu-container">
                                             <a class="sf-with-ul" href="#">Clothing</a>
 
                                             <div class="megamenu">
@@ -595,8 +584,8 @@
                                                     </div><!-- End .row -->
                                                 </div><!-- End .menu-brands -->
                                             </div><!-- End .megamenu -->
-                                        </li> --}}  
-                                    </div> 
+                                        </li> --}}
+                                        </div>
                                     </ul><!-- End .menu-vertical -->
                                 </nav><!-- End .side-nav -->
                             </div><!-- End .dropdown-menu -->
@@ -606,9 +595,9 @@
                         <nav class="main-nav">
                             <ul class="menu sf-arrows">
                                 <li class="megamenu-container active">
-                                    <a href="{{route('home')}}" class="sf-with">Home</a>
+                                    <a href="{{ route('home') }}" class="sf-with">Home</a>
 
-                                  
+
                                 </li>
                                 <li>
                                     <a href="category.html" class="sf-with-ul">Shop</a>
@@ -625,7 +614,8 @@
                                                                 <li><a href="category-list.html">Shop List</a></li>
                                                                 <li><a href="category-2cols.html">Shop Grid 2
                                                                         Columns</a></li>
-                                                                <li><a href="category.html">Shop Grid 3 Columns</a></li>
+                                                                <li><a href="category.html">Shop Grid 3 Columns</a>
+                                                                </li>
                                                                 <li><a href="category-4cols.html">Shop Grid 4
                                                                         Columns</a></li>
                                                                 <li><a href="category-market.html"><span>Shop
@@ -634,7 +624,7 @@
                                                                 </li>
                                                             </ul>
 
-                                                            
+
                                                         </div><!-- End .col-md-6 -->
                                                     </div><!-- End .row -->
                                                 </div><!-- End .menu-col -->
@@ -643,7 +633,7 @@
                                             <div class="col-md-4">
                                                 <div class="banner banner-overlay">
                                                     <a href="category.html" class="banner banner-menu">
-                                                        <img src="{{asset('public/frontend/assets/images/menu/banner-1.jpg')}}"
+                                                        <img src="{{ asset('public/frontend/assets/images/menu/banner-1.jpg') }}"
                                                             alt="Banner">
 
                                                         <div class="banner-content banner-content-top">
@@ -659,15 +649,15 @@
                                     </div><!-- End .megamenu megamenu-md -->
                                 </li>
                                 <li>
-                                    <a href="{{route('product')}}" class="sf-with">Product</a>
+                                    <a href="{{ route('product') }}" class="sf-with">Product</a>
                                 </li>
                                 <li>
                                     <a href="#" class="sf-with-ul">Pages</a>
 
                                     <ul>
-                                        <li><a href="{{route('about')}}">About</a></li>
+                                        <li><a href="{{ route('about') }}">About</a></li>
                                         <li><a href="login.html">Contact</a></li>
-                                        <li><a href="{{route('login')}}">Login</a></li>
+                                        <li><a href="{{ route('login') }}">Login</a></li>
                                         <li><a href="faq.html">FAQs</a></li>
                                         <li><a href="coming-soon.html">Coming Soon</a></li>
                                     </ul>
@@ -714,7 +704,7 @@
                                         </li>
                                     </ul>
                                 </li> --}}
-                                
+
                             </ul><!-- End .menu -->
                         </nav><!-- End .main-nav -->
                     </div><!-- End .col-lg-9 -->
@@ -796,7 +786,7 @@
                     <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="widget widget-about">
-                                <img src="{{asset('public/frontend/assets/images/demos/demo-13/logo-footer.png')}}"
+                                <img src="{{ asset('public/frontend/assets/images/demos/demo-13/logo-footer.png') }}"
                                     class="footer-logo" alt="Footer Logo" width="105" height="25">
                                 <p>Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate
                                     magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan
@@ -811,7 +801,7 @@
                                         <div class="col-sm-6 col-md-8">
                                             <span class="widget-about-title">Payment Method</span>
                                             <figure class="footer-payments">
-                                                <img src="{{asset('public/frontend/assets/images/payments.png')}}"
+                                                <img src="{{ asset('public/frontend/assets/images/payments.png') }}"
                                                     alt="Payment methods" width="272" height="20">
                                             </figure><!-- End .footer-payments -->
                                         </div><!-- End .col-sm-6 -->
@@ -914,8 +904,8 @@
                         role="tab" aria-controls="mobile-menu-tab" aria-selected="true">Menu</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="mobile-cats-link" data-toggle="tab" href="#mobile-cats-tab" role="tab"
-                        aria-controls="mobile-cats-tab" aria-selected="false">Categories</a>
+                    <a class="nav-link" id="mobile-cats-link" data-toggle="tab" href="#mobile-cats-tab"
+                        role="tab" aria-controls="mobile-cats-tab" aria-selected="false">Categories</a>
                 </li>
             </ul>
 
@@ -1095,10 +1085,14 @@
             </div><!-- End .tab-content -->
 
             <div class="social-icons">
-                <a href="#" class="social-icon" target="_blank" title="Facebook"><i class="icon-facebook-f"></i></a>
-                <a href="#" class="social-icon" target="_blank" title="Twitter"><i class="icon-twitter"></i></a>
-                <a href="#" class="social-icon" target="_blank" title="Instagram"><i class="icon-instagram"></i></a>
-                <a href="#" class="social-icon" target="_blank" title="Youtube"><i class="icon-youtube"></i></a>
+                <a href="#" class="social-icon" target="_blank" title="Facebook"><i
+                        class="icon-facebook-f"></i></a>
+                <a href="#" class="social-icon" target="_blank" title="Twitter"><i
+                        class="icon-twitter"></i></a>
+                <a href="#" class="social-icon" target="_blank" title="Instagram"><i
+                        class="icon-instagram"></i></a>
+                <a href="#" class="social-icon" target="_blank" title="Youtube"><i
+                        class="icon-youtube"></i></a>
             </div><!-- End .social-icons -->
         </div><!-- End .mobile-menu-wrapper -->
     </div><!-- End .mobile-menu-container -->
@@ -1117,12 +1111,12 @@
                             <ul class="nav nav-pills nav-fill nav-border-anim" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="" data-toggle="tab"
-                                        href="{{route('login')}}" role="tab" aria-controls="signin"
+                                        href="{{ route('login') }}" role="tab" aria-controls="signin"
                                         aria-selected="true">Sign In</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="register-tab" data-toggle="tab" href="#register" role="tab"
-                                        aria-controls="register" aria-selected="false">Register</a>
+                                    <a class="nav-link" id="register-tab" data-toggle="tab" href="#register"
+                                        role="tab" aria-controls="register" aria-selected="false">Register</a>
                                 </li>
                             </ul>
                             <div class="tab-content" id="tab-content-5">
@@ -1175,7 +1169,8 @@
                                         </div><!-- End .row -->
                                     </div><!-- End .form-choice -->
                                 </div><!-- .End .tab-pane -->
-                                <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+                                <div class="tab-pane fade" id="register" role="tabpanel"
+                                    aria-labelledby="register-tab">
                                     <form action="#">
                                         <div class="form-group">
                                             <label for="register-email">Your email address *</label>
@@ -1196,9 +1191,10 @@
                                             </button>
 
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="register-policy"
-                                                    required>
-                                                <label class="custom-control-label" for="register-policy">I agree to the
+                                                <input type="checkbox" class="custom-control-input"
+                                                    id="register-policy" required>
+                                                <label class="custom-control-label" for="register-policy">I agree to
+                                                    the
                                                     <a href="#">privacy policy</a> *</label>
                                             </div><!-- End .custom-checkbox -->
                                         </div><!-- End .form-footer -->
@@ -1229,24 +1225,25 @@
         </div><!-- End .modal-dialog -->
     </div><!-- End .modal -->
     <!-- Plugins JS File -->
-    <script src="{{asset('public/frontend/assets/js/jquery.min.js')}}"></script>
-    <script src="{{asset('public/frontend/assets/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('public/frontend/assets/js/jquery.hoverIntent.min.js')}}"></script>
-    <script src="{{asset('public/frontend/assets/js/jquery.waypoints.min.js')}}"></script>
-    <script src="{{asset('public/frontend/assets/js/superfish.min.js')}}"></script>
-    <script src="{{asset('public/frontend/assets/js/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('public/frontend/assets/js/bootstrap-input-spinner.js')}}"></script>
-    <script src="{{asset('public/frontend/assets/js/jquery.magnific-popup.min.js')}}"></script>
-    <script src="{{asset('public/frontend/assets/js/jquery.plugin.min.js')}}"></script>
-    <script src="{{asset('public/frontend/assets/js/jquery.countdown.min.js')}}"></script>
+    <script src="{{ asset('public/frontend/assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('public/frontend/assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('public/frontend/assets/js/jquery.hoverIntent.min.js') }}"></script>
+    <script src="{{ asset('public/frontend/assets/js/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ asset('public/frontend/assets/js/superfish.min.js') }}"></script>
+    <script src="{{ asset('public/frontend/assets/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('public/frontend/assets/js/bootstrap-input-spinner.js') }}"></script>
+    <script src="{{ asset('public/frontend/assets/js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('public/frontend/assets/js/jquery.plugin.min.js') }}"></script>
+    <script src="{{ asset('public/frontend/assets/js/jquery.countdown.min.js') }}"></script>
 
 
 
     <!-- Main JS File -->
-    <script src="{{asset('public/frontend/assets/js/main.js')}}"></script>
-    <script src="{{asset('public/frontend/assets/js/demos/demo-13.js')}}"></script>
+    <script src="{{ asset('public/frontend/assets/js/main.js') }}"></script>
+    <script src="{{ asset('public/frontend/assets/js/demos/demo-13.js') }}"></script>
 
     @stack('scripts')
+    
 </body>
 
 

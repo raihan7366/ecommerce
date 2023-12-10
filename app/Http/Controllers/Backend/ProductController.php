@@ -19,7 +19,15 @@ class ProductController extends Controller
     public function index()
     {
         $data=Product::paginate(10);
-        return view('backend.products.index',compact('data'));
+        $category = Category::get();
+        return view('backend.products.index',compact('data','category'));
+    }
+
+    public function frontIndex()
+    {
+        $products = Product::paginate(10);
+        $category = Category::get();
+        return view('frontend.product.index', compact('products', 'category'));
     }
 
     /**
