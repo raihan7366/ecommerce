@@ -152,7 +152,7 @@
                                     </tbody>
                                 </table><!-- End .table table-summary -->
 
-                                <a href="checkout.html" class="btn btn-outline-primary-2 btn-order btn-block">PROCEED TO
+                                <a href="{{route('checkout')}}" class="btn btn-outline-primary-2 btn-order btn-block">PROCEED TO
                                     CHECKOUT</a>
                             </div><!-- End .summary -->
 

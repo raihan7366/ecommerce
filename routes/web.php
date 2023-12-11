@@ -17,6 +17,8 @@ use App\Http\Controllers\Backend\StockController as stocks;
 use App\Http\Controllers\Backend\SettingController as settings;
 use App\Http\Controllers\Backend\ReviewController as reviews;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
+// use App\Http\Controllers\WishlistController;
 
 use App\Http\Controllers\Customer\AuthController as cauth;
 
@@ -43,11 +45,11 @@ Route::get('/login', [auth::class, 'signInForm'])->name('login');
 Route::post('/login', [auth::class, 'signInCheck'])->name('login.check');
 Route::get('/logout', [auth::class, 'singOut'])->name('logOut');
 
-Route::middleware(['checkauth'])->prefix('admin')->group(function(){
-    Route::get('dashboard', [dashboard::class,'index'])->name('dashboard');
+Route::middleware(['checkauth'])->prefix('admin')->group(function () {
+    Route::get('dashboard', [dashboard::class, 'index'])->name('dashboard');
 });
 
-Route::middleware(['checkrole'])->prefix('admin')->group(function(){
+Route::middleware(['checkrole'])->prefix('admin')->group(function () {
     Route::resource('user', user::class);
     Route::resource('role', role::class);
     Route::resource('customers', customers::class);
@@ -60,9 +62,9 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('stocks', stocks::class);
     Route::resource('settings', settings::class);
     Route::resource('reviews', reviews::class);
-    
-    Route::get('permission/{role}', [permission::class,'index'])->name('permission.list');
-    Route::post('permission/{role}', [permission::class,'save'])->name('permission.save');
+
+    Route::get('permission/{role}', [permission::class, 'index'])->name('permission.list');
+    Route::post('permission/{role}', [permission::class, 'save'])->name('permission.save');
 });
 
 Route::get('/dashboard', function () {
@@ -96,7 +98,7 @@ Route::get('/home', function () {
 })->name('home');
 
 Route::get('/product', function () {
-    return view('frontend.product.index');
+    return view('frontend/product/index');
 })->name('product');
 
 // product
@@ -107,10 +109,6 @@ Route::get('/about', function () {
     return view('frontend/about/index');
 })->name('about');
 
-Route::get('/wishlist', function () {
-    return view('frontend/wishlist/index');
-})->name('wishlist');
-
 Route::get('/productDetails', function () {
     return view('frontend/productDetails/index');
 })->name('productDetails');
@@ -120,9 +118,24 @@ Route::get('/cart', function () {
 })->name('cart');
 
 
+Route::get('/wishlist', function () {
+    return view('frontend/wishlist/index');
+})->name('wishlist');
+
+Route::get('/checkout', function () {
+    return view('frontend/checkout/index');
+})->name('checkout');
+
+
 // cart
-Route::get('/', [CartController::class, 'index']);  
+// Route::get('/', [CartController::class, 'index']);
 Route::get('cart', [CartController::class, 'cart'])->name('cart');
 Route::get('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add.to.cart');
 Route::patch('update-cart', [CartController::class, 'update'])->name('update.cart');
 Route::delete('remove-from-cart', [CartController::class, 'remove'])->name('remove.from.cart');
+
+//wishlist
+// Route::get('wishlist', [WishlistController::class, 'cart'])->name('wishlist');
+// Route::get('add-to-wishlist/{id}', [WishlistController::class, 'addToWishlist'])->name('add.to.wishlist');
+// Route::patch('update-wishlist', [WishlistController::class, 'update'])->name('update.wishlist');
+// Route::delete('remove-from-wishlist', [WishlistController::class, 'remove'])->name('remove.from.wishlist');

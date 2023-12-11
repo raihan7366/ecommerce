@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 
-class CartController extends Controller
+class WishlistController extends Controller
 {
     public function index()
     {
@@ -20,9 +20,9 @@ class CartController extends Controller
      *
      * @return response()
      */
-    public function cart()
+    public function wishlist()
     {
-        return view('frontend.cart.index');
+        return view('frontend.wishlist.index');
     }
   
     /**
@@ -30,27 +30,24 @@ class CartController extends Controller
      *
      * @return response()
      */
-    public function addToCart($id)
+    public function addToWishlist($id)
     {
         $product = Product::findOrFail($id);
           
-        $cart = session()->get('cart', []);
+        $wishlist = session()->get('wishlist', []);
   
-        if(isset($cart[$id])) {
-            $message="You have already added this product in your cart.";
-            return redirect()->back()->with('warning', $message);
-            // $cart[$id]['quantity']++;
+        if(isset($wishlist[$id])) {
+            $wishlist[$id]['quantity']++;
         } else {
-            $cart[$id] = [
+            $wishlist[$id] = [
                 "name_en" => $product->name_en,
-                "quantity" => 1,
                 "price" => $product->price,
                 "image" => $product->image
             ];
         }
           
-        session()->put('cart', $cart);
-        return redirect()->back()->with('success', 'Product added to cart successfully!');
+        session()->put('wishlist', $wishlist);
+        return redirect()->back()->with('success', 'Product added to wishlist successfully!');
     }
   
     /**
@@ -61,10 +58,10 @@ class CartController extends Controller
     public function update(Request $request)
     {
         if($request->id && $request->quantity){
-            $cart = session()->get('cart');
-            $cart[$request->id]["quantity"] = $request->quantity;
-            session()->put('cart', $cart);
-            session()->flash('success', 'Cart updated successfully');
+            $wishlist = session()->get('wishlist');
+            $wishlist[$request->id]["quantity"] = $request->quantity;
+            session()->put('wishlist', $wishlist);
+            session()->flash('success', 'Wishlist updated successfully');
         }
     }
   
@@ -76,10 +73,10 @@ class CartController extends Controller
     public function remove(Request $request)
     {
         if($request->id) {
-            $cart = session()->get('cart');
-            if(isset($cart[$request->id])) {
-                unset($cart[$request->id]);
-                session()->put('cart', $cart);
+            $wishlist = session()->get('wishlist');
+            if(isset($wishlist[$request->id])) {
+                unset($wishlist[$request->id]);
+                session()->put('wishlist', $wishlist);
             }
             session()->flash('success', 'Product removed successfully');
         }
