@@ -63,7 +63,8 @@
                                                     <!-- End .cart-product-quantity -->
                                                 </td>
                                                 <td class="total-col">${{ $details['price'] * $details['quantity'] }}</td>
-                                                <td class="remove-col" data-th=""><button class="btn-remove remove-from-cart"><i
+                                                <td class="remove-col" data-th=""><button
+                                                        class="btn-remove remove-from-cart"><i
                                                             class="icon-close"></i></button></td>
                                             </tr>
                                         @endforeach
@@ -73,9 +74,11 @@
 
                             <div class="cart-bottom">
                                 <div class="cart-discount">
-                                    <form action="#">
+                                    <form action="{{ route('coupon_check') }}" method="post">
+                                        @csrf
                                         <div class="input-group">
-                                            <input type="text" class="form-control" required placeholder="coupon code">
+                                            <input type="text" class="form-control" name="coupon" required
+                                                placeholder="coupon code">
                                             <div class="input-group-append">
                                                 <button class="btn btn-outline-primary-2" type="submit"><i
                                                         class="icon-long-arrow-right"></i></button>
@@ -95,64 +98,28 @@
                                 <table class="table table-summary">
                                     <tbody>
                                         <tr class="summary-subtotal">
-                                            <td>Subtotal:</td>
-                                            <td>${{ number_format((float) $total, 2) }}</td>
+                                            <td>Subtotal: </td>
+                                            {{-- <td>${{ number_format((float) $total, 2) }}</td> --}}
+                                            <td>{{ '$' . number_format((float) session('cart_details')['cart_total'], 2) }}
+                                            </td>
                                         </tr><!-- End .summary-subtotal -->
-                                        <tr class="summary-shipping">
-                                            <td>Shipping:</td>
-                                            <td>&nbsp;</td>
+                                        <tr class="summary-subtotal">
+                                            <td>Discount:</td>
+                                            <td>$
+                                                {{ array_key_exists('discount_amount', session('cart_details')) ? number_format(session('cart_details')['discount_amount'], 2) : ' 0.00' }}
+                                            </td>
                                         </tr>
-
-                                        <tr class="summary-shipping-row">
-                                            <td>
-                                                <div class="custom-control custom-radio">
-                                                    <input type="radio" id="free-shipping" name="shipping"
-                                                        class="custom-control-input">
-                                                    <label class="custom-control-label" for="free-shipping">Free
-                                                        Shipping</label>
-                                                </div><!-- End .custom-control -->
-                                            </td>
-                                            <td>$0.00</td>
-                                        </tr><!-- End .summary-shipping-row -->
-
-                                        <tr class="summary-shipping-row">
-                                            <td>
-                                                <div class="custom-control custom-radio">
-                                                    <input type="radio" id="standart-shipping" name="shipping"
-                                                        class="custom-control-input">
-                                                    <label class="custom-control-label"
-                                                        for="standart-shipping">Standart:</label>
-                                                </div><!-- End .custom-control -->
-                                            </td>
-                                            <td>$00.00</td>
-                                        </tr><!-- End .summary-shipping-row -->
-
-                                        <tr class="summary-shipping-row">
-                                            <td>
-                                                <div class="custom-control custom-radio">
-                                                    <input type="radio" id="express-shipping" name="shipping"
-                                                        class="custom-control-input">
-                                                    <label class="custom-control-label"
-                                                        for="express-shipping">Express:</label>
-                                                </div><!-- End .custom-control -->
-                                            </td>
-                                            <td>$00.00</td>
-                                        </tr><!-- End .summary-shipping-row -->
-
-                                        <tr class="summary-shipping-estimate">
-                                            <td>Estimate for Your Country<br> <a href="dashboard.html">Change address</a>
-                                            </td>
-                                            <td>&nbsp;</td>
-                                        </tr><!-- End .summary-shipping-estimate -->
-
                                         <tr class="summary-total">
                                             <td>Total:</td>
-                                            <td>${{ number_format((float) $total, 2) }}</td>
+                                            {{-- <td>${{ number_format((float) $total, 2) }}</td> --}}
+                                            <td>{{ '$' . number_format((float) session('cart_details')['total_amount'], 2) }}
+                                            </td>
                                         </tr><!-- End .summary-total -->
                                     </tbody>
                                 </table><!-- End .table table-summary -->
 
-                                <a href="{{route('checkout')}}" class="btn btn-outline-primary-2 btn-order btn-block">PROCEED TO
+                                <a href="{{ route('checkout') }}"
+                                    class="btn btn-outline-primary-2 btn-order btn-block">PROCEED TO
                                     CHECKOUT</a>
                             </div><!-- End .summary -->
 

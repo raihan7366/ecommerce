@@ -16,6 +16,7 @@ use App\Http\Controllers\Backend\PaymentController as payments;
 use App\Http\Controllers\Backend\StockController as stocks;
 use App\Http\Controllers\Backend\SettingController as settings;
 use App\Http\Controllers\Backend\ReviewController as reviews;
+use App\Http\Controllers\Backend\CouponController as coupon;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 // use App\Http\Controllers\WishlistController;
@@ -62,6 +63,7 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function () {
     Route::resource('stocks', stocks::class);
     Route::resource('settings', settings::class);
     Route::resource('reviews', reviews::class);
+    Route::resource('coupon', coupon::class);
 
     Route::get('permission/{role}', [permission::class, 'index'])->name('permission.list');
     Route::post('permission/{role}', [permission::class, 'save'])->name('permission.save');
@@ -133,6 +135,9 @@ Route::get('cart', [CartController::class, 'cart'])->name('cart');
 Route::get('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add.to.cart');
 Route::patch('update-cart', [CartController::class, 'update'])->name('update.cart');
 Route::delete('remove-from-cart', [CartController::class, 'remove'])->name('remove.from.cart');
+
+// Coupon
+Route::post('coupon_check', [CartController::class, 'coupon_check'])->name('coupon_check');
 
 //wishlist
 // Route::get('wishlist', [WishlistController::class, 'cart'])->name('wishlist');

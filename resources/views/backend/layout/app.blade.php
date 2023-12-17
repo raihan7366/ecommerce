@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="utf-8">
-    <title>@yield('title',env('APP_NAME'))</title>
+    <title>@yield('title', env('APP_NAME'))</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
     <!-- Favicon -->
-    <link href="{{asset('public/img/favicon.ico')}}" rel="icon">
+    <link href="{{ asset('public/img/favicon.ico') }}" rel="icon">
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,19 +18,19 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
     <!-- Icons Css -->
-    <link href="{{asset('public/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('public/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
     <!--
     Libraries Stylesheet -->
-    <link href="{{asset('public/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
-    <link href=" {{asset('public/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css')}}" rel="stylesheet" />
+    <link href="{{ asset('public/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href=" {{ asset('public/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet" />
     <!--
     Customized Bootstrap Stylesheet -->
-    <link href=" {{asset('public/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href=" {{ asset('public/css/bootstrap.min.css') }}" rel="stylesheet">
     <!--
     Template Stylesheet -->
-    <link href="{{asset('public/css/style.css')}}" rel="stylesheet">
+    <link href="{{ asset('public/css/style.css') }}" rel="stylesheet">
     @stack('styles')
 </head>
 
@@ -49,59 +49,63 @@
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
                         <img class="rounded-circle" img
-                            src="{{asset('public/uploads/users/'.request()->session()->get('image'))}}" alt=""
+                            src="{{ asset('public/uploads/users/' .request()->session()->get('image')) }}" alt=""
                             style="width: 40px; height: 40px;">
                         <div
                             class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
                         </div>
                     </div>
                     <div class="ms-3">
-                        <h6 class="mb-0">{{encryptor('decrypt',request()->session()->get('userName'))}}</h6>
-                        <span>{{encryptor('decrypt',request()->session()->get('role'))}}</span>
+                        <h6 class="mb-0">{{ encryptor('decrypt',request()->session()->get('userName')) }}</h6>
+                        <span>{{ encryptor('decrypt',request()->session()->get('role')) }}</span>
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
                     <a href="http://localhost/ecommerce/admin/dashboard" class="nav-item nav-link "><i
                             class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
 
-                    <a href="{{route('user.index')}}" class="nav-item nav-link "><i class="fa fa-user me-2"></i>User</a>
+                    <a href="{{ route('user.index') }}" class="nav-item nav-link "><i
+                            class="fa fa-user me-2"></i>User</a>
 
 
-                    <a href="{{route('customers.index')}}" class="nav-item nav-link "><i
+                    <a href="{{ route('customers.index') }}" class="nav-item nav-link "><i
                             class="fa fa-users me-2"></i>Customers</a>
 
 
-                    <a href="{{route('categories.index')}}" class="nav-item nav-link "><i
+                    <a href="{{ route('categories.index') }}" class="nav-item nav-link "><i
                             class="fa fa-sitemap me-2"></i>Category</a>
 
 
-                    <a href="{{route('brands.index')}}" class="nav-item nav-link "><i
+                    <a href="{{ route('brands.index') }}" class="nav-item nav-link "><i
                             class="fa fa-crown me-2"></i>Brand</a>
 
 
-                    <a href="{{route('products.index')}}" class="nav-item nav-link "><i
+                    <a href="{{ route('products.index') }}" class="nav-item nav-link "><i
                             class="fa fa-box me-2"></i>Product</a>
 
 
-                    <a href="{{route('orders.index')}}" class="nav-item nav-link "><i
+                    <a href="{{ route('orders.index') }}" class="nav-item nav-link "><i
                             class=" las la-dolly-flatbed me-2"></i>Orders</a>
 
-                    <a href="{{route('orderDetails.index')}}" class="nav-item nav-link "><i
+                    <a href="{{ route('orderDetails.index') }}" class="nav-item nav-link "><i
                             class=" las la-clipboard-list me-2"></i>Order Details</a>
 
-                    <a href="{{route('stocks.index')}}" class="nav-item nav-link "><i
+                    <a href="{{ route('stocks.index') }}" class="nav-item nav-link "><i
                             class="las la-boxes me-2"></i>Stock</a>
 
-                    <a href="{{route('payments.index')}}" class="nav-item nav-link "><i
+                    <a href="{{ route('payments.index') }}" class="nav-item nav-link "><i
                             class="las la-money-check-alt me-2"></i>Payment</a>
-                    
-                    <a href="{{route('reviews.index')}}" class="nav-item nav-link "><i
-                            class="bx bxs-star-half me-2"></i>Reviews</a>
-                            
 
-                    <a href="{{route('settings.index')}}" class="nav-item nav-link "><i
+                    <a href="{{ route('reviews.index') }}" class="nav-item nav-link "><i
+                            class="bx bxs-star-half me-2"></i>Reviews</a>
+
+                    <a href="{{ route('coupon.index') }}" class="nav-item nav-link "><i
+                            class=" bx bx-purchase-tag-alt me-2"></i>Coupon</a>
+
+
+                    <a href="{{ route('settings.index') }}" class="nav-item nav-link "><i
                             class="ri-user-settings-fill me-2"></i>Settings</a>
-                            
+
 
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
@@ -123,7 +127,7 @@
                             <a href="signin.html" class="dropdown-item">Sign In</a>
                             <a href="signup.html" class="dropdown-item">Sign Up</a>
                             <a href="404.html" class="dropdown-item">404 Error</a>
-                            <a href="{{route('role.index')}}" class="dropdown-item">Blank Page</a>
+                            <a href="{{ route('role.index') }}" class="dropdown-item">Blank Page</a>
                         </div>
                     </div>
                 </div>
@@ -215,15 +219,15 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2"
-                                src="{{asset('public/uploads/users/'.request()->session()->get('image'))}}" alt=""
-                                style="width: 40px; height: 40px;">
+                                src="{{ asset('public/uploads/users/' .request()->session()->get('image')) }}"
+                                alt="" style="width: 40px; height: 40px;">
                             <span
-                                class="d-none d-lg-inline-flex">{{encryptor('decrypt',request()->session()->get('userName'))}}</span>
+                                class="d-none d-lg-inline-flex">{{ encryptor('decrypt',request()->session()->get('userName')) }}</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item">Settings</a>
-                            <a href="{{route('login')}}" class="dropdown-item">Log Out</a>
+                            <a href="{{ route('login') }}" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>
@@ -263,16 +267,16 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{('public/lib/chart/chart.min.js')}}"></script>
-    <script src="{{('public/lib/easing/easing.min.js')}}"></script>
-    <script src="{{('public/lib/waypoints/waypoints.min.js')}}"></script>
-    <script src="{{('public/lib/owlcarousel/owl.carousel.min.js')}}"></script>
-    <script src="{{('public/lib/tempusdominus/js/moment.min.js')}}"></script>
-    <script src="{{('public/lib/tempusdominus/js/moment-timezone.min.js')}}"></script>
-    <script src="{{('public/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js')}}"></script>
+    <script src="{{ 'public/lib/chart/chart.min.js' }}"></script>
+    <script src="{{ 'public/lib/easing/easing.min.js' }}"></script>
+    <script src="{{ 'public/lib/waypoints/waypoints.min.js' }}"></script>
+    <script src="{{ 'public/lib/owlcarousel/owl.carousel.min.js' }}"></script>
+    <script src="{{ 'public/lib/tempusdominus/js/moment.min.js' }}"></script>
+    <script src="{{ 'public/lib/tempusdominus/js/moment-timezone.min.js' }}"></script>
+    <script src="{{ 'public/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js' }}"></script>
     @stack('scripts')
     <!-- Template Javascript -->
-    <script src="{{('public/js/main.js')}}"></script>
+    <script src="{{ 'public/js/main.js' }}"></script>
 </body>
 
 </html>
