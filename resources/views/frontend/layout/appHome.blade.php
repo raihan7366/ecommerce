@@ -262,6 +262,7 @@
                                         <li><a href="#">Furniture</a></li>
                                         <li><a href="#">Cooking</a></li>
                                         <li><a href="#">Clothing</a></li>
+                                        <li><a href="#">Accouterments</a></li>
                                         <li><a href="#">Home Appliances</a></li>
                                         <li><a href="#">Healthy & Beauty</a></li>
                                         <div>

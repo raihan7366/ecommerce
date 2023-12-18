@@ -36,6 +36,7 @@ class CategoryController extends Controller
         try{
             $data=new Category();
             $data->name_en=$request->categoriesName_en;
+            $data->subcatname_en=$request->subcategoriesName_en;
 
             if($request->hasFile('image')){
                 $imageName = rand(111,999).time().'.'.

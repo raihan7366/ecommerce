@@ -21,6 +21,7 @@
                                 <th scope="col">{{__('Short Description')}}</th>
                                 <th scope="col">{{__('Image')}}</th>
                                 <th scope="col">{{__('Category')}}</th>
+                                <th scope="col">{{__('Sub-Category')}}</th>
                                 <th scope="col">{{__('Brand')}}</th>
                                 <th scope="col">{{__('Price')}}</th>
                                 <th scope="col">{{__('Discount Type')}}</th>
@@ -39,6 +40,7 @@
                                 <td>{{$p->short_description}}</td>
                                 <td><img width="50px" src="{{asset('public/uploads/products/'.$p->image)}}" alt=""></td>
                                 <td>{{$p->category?->name_en}}</td>
+                                <td>{{$p->category?->subcatname_en}}</td>
                                 <td>{{$p->brand?->name_en}}</td>
                                 <td>{{$p->price}}</td>
                                 <td style="color:@if($p->discount_type==1) green @else red @endif;">
@@ -76,6 +78,7 @@
                             @endforelse
                         </tbody>
                     </table>
+                    {{$data->links()}}
                 </div>
             </div>
         </div>

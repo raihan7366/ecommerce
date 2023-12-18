@@ -30,6 +30,13 @@ class ProductController extends Controller
         return view('frontend.product.index', compact('products', 'category'));
     }
 
+     public function homeIndex()
+    {
+        $products = Product::paginate(10);
+        $category = Category::get();
+        return view('frontend.home.index', compact('products', 'category'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */

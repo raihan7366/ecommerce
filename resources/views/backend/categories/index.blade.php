@@ -14,7 +14,8 @@
             <thead>
                 <tr>
                     <th scope="col">{{__('#SL')}}</th>
-                    <th scope="col">{{__('Name')}}</th>
+                    <th scope="col">{{__('Category')}}</th>
+                    <th scope="col">{{__('Sub Category')}}</th>
                     <th scope="col">{{__('Image')}}</th>
                     <th class="white-space-nowrap">{{__('Action') }}
                 </tr>
@@ -24,6 +25,7 @@
                 <tr>
                     <th scope="row">{{ ++$loop->index }}</th>
                     <td>{{$p->name_en}}</td>
+                    <td>{{$p->subcatname_en}}</td>
                     
                     <td><img width="50px" src="{{asset('public/uploads/categories/'.$p->image)}}" alt=""></td>
                    
@@ -52,6 +54,7 @@
                 @endforelse
             </tbody>
             </table>
+            {{$data->links()}}
         </div>
     </div>
     @endsection

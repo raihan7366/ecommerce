@@ -123,6 +123,23 @@
                         </div>
 
                         <div class="form-group mb-2">
+                            <label for="category" class="form-label">Sub-Categories</label><br>
+                            <select class="form-select" id="category" aria-label="Categories" name="categoryId">
+                                <option value="">Select Sub-Category</option>
+                                @forelse($category as $c)
+                                <option value="{{$c->id}}" {{ old('categoryId', $product->category_id)
+                                    ==$c->id?"selected":""}}> {{ $c->subcatname_en}}
+                                </option>
+                                @empty
+                                <option value="">No Sub-Category found</option>
+                                @endforelse
+                            </select>
+                            @if($errors->has('categoryId'))
+                            <span class="text-danger"> {{ $errors->first('categoryId') }}</span>
+                            @endif
+                        </div>
+
+                        <div class="form-group mb-2">
                             <label for="brand_id" class="form-label">Brands</label><br>
                             <select class="form-select" id="brand" aria-label="Brands" name="brandId">
                                 <option value="">Select Brand</option>

@@ -30,13 +30,23 @@
                         @endif
                     </div> --}}
                     <div class="mb-2">
-                        <label for="name_en" class="form-label">Name</label>
+                        <label for="name_en" class="form-label">Category Name</label>
                         <input type="text" class="form-control" id="name_en" value="{{ old('categoriesName_en')}}"
                             name="categoriesName_en">
                         @if($errors->has('categoriesName_en'))
                         <span class="text-danger"> {{ $errors->first('categoriesName_en') }}</span>
                         @endif
                     </div>
+
+                    <div class="mb-2">
+                        <label for="subcatname_en" class="form-label">Sub-category Name</label>
+                        <input type="text" class="form-control" id="subcatname_en" value="{{ old('subcategoriesName_en')}}"
+                            name="subcategoriesName_en">
+                        @if($errors->has('subcategoriesName_en'))
+                        <span class="text-danger"> {{ $errors->first('subcategoriesName_en') }}</span>
+                        @endif
+                    </div>
+
 
 
 

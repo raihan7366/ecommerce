@@ -106,6 +106,9 @@ Route::get('/product', function () {
 // product
 Route::get('product', [products::class, 'frontIndex'])->name('product');
 
+// home
+Route::get('home', [products::class, 'homeIndex'])->name('home');
+
 
 Route::get('/about', function () {
     return view('frontend/about/index');
