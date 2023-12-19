@@ -355,14 +355,16 @@
                                             <div class="filter-item">
                                                 <div class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input" id="brand-6">
-                                                    <label class="custom-control-label" for="brand-10">Sharjah Lightings</label>
+                                                    <label class="custom-control-label" for="brand-10">Sharjah
+                                                        Lightings</label>
                                                 </div><!-- End .custom-checkbox -->
                                             </div><!-- End .filter-item -->
 
                                             <div class="filter-item">
                                                 <div class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input" id="brand-7">
-                                                    <label class="custom-control-label" for="brand-11">George Armani</label>
+                                                    <label class="custom-control-label" for="brand-11">George
+                                                        Armani</label>
                                                 </div><!-- End .custom-checkbox -->
                                             </div><!-- End .filter-item -->
 
