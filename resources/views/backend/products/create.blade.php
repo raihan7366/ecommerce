@@ -116,18 +116,18 @@
                     </div>
 
                     <div class="form-group mb-2">
-                        <label for="category" class="form-label">Sub-Categories</label><br>
-                        <select class="form-select" id="category" aria-label="Categories" name="categoryId">
+                        <label for="subcategory" class="form-label">Sub-Categories</label><br>
+                        <select class="form-select" id="subcategory" aria-label="Sub-Categories" name="subcategoryId">
                             <option value="">Select Sub Category</option>
-                            @forelse($category as $c)
-                            <option value="{{$c->id}}" {{ old('categoryId')==$c->id?"selected":""}}> {{ $c->subcatname_en}}
+                            @forelse($subcategory as $sc)
+                            <option value="{{$sc->id}}" {{ old('subcategoryId')==$sc->id?"selected":""}}> {{ $sc->subcatname_en}}
                             </option>
                             @empty
-                            <option value="">No Category found</option>
+                            <option value="">No Sub-Category found</option>
                             @endforelse
                         </select>
-                        @if($errors->has('categoryId'))
-                        <span class="text-danger"> {{ $errors->first('categoryId') }}</span>
+                        @if($errors->has('subcategoryId'))
+                        <span class="text-danger"> {{ $errors->first('subcategoryId') }}</span>
                         @endif
                     </div>
 

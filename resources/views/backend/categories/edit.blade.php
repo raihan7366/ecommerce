@@ -27,16 +27,6 @@
                                 @endif
                             </div>
 
-                            <div class="mb-2">
-                                <label for="subcatname_en" class="form-label">Sub-Category Name</label>
-                                <input type="text" id="subcategoriesName_en" class="form-control"
-                                    value="{{ old('subcategoriesName_en', $category->subcatname_en) }}"
-                                    name="subcategoriesName_en">
-                                @if ($errors->has('subcategoriesName_en'))
-                                    <span class="text-danger"> {{ $errors->first('categoriesName_en') }}</span>
-                                @endif
-                            </div>
-
                             {{-- <div class="mb-2">
                             <label for="formFile" class="form-label">Image</label>
                             <input class="form-control" type="file" id="formFile" name="image">

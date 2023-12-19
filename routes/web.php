@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\CustomersController as customers;
 use App\Http\Controllers\Backend\DashboardController as dashboard;
 use App\Http\Controllers\Backend\PermissionController as permission;
 use App\Http\Controllers\Backend\CategoryController as categories;
+use App\Http\Controllers\Backend\SubcategoryController as subcategories;
 use App\Http\Controllers\Backend\BrandController as brands;
 use App\Http\Controllers\Backend\ProductController as products;
 use App\Http\Controllers\Backend\OrderController as orders;
@@ -55,6 +56,7 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function () {
     Route::resource('role', role::class);
     Route::resource('customers', customers::class);
     Route::resource('categories', categories::class);
+    Route::resource('subcategories', subcategories::class);
     Route::resource('brands', brands::class);
     Route::resource('products', products::class);
     Route::resource('orders', orders::class);

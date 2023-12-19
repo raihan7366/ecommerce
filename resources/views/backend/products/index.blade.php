@@ -40,7 +40,7 @@
                                 <td>{{$p->short_description}}</td>
                                 <td><img width="50px" src="{{asset('public/uploads/products/'.$p->image)}}" alt=""></td>
                                 <td>{{$p->category?->name_en}}</td>
-                                <td>{{$p->category?->subcatname_en}}</td>
+                                <td>{{$p->subcategory?->subcatname_en}}</td>
                                 <td>{{$p->brand?->name_en}}</td>
                                 <td>{{$p->price}}</td>
                                 <td style="color:@if($p->discount_type==1) green @else red @endif;">

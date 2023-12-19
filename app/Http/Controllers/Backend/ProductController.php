@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Subcategory;
 use App\Models\Brand;
 use Illuminate\Http\Request;
 use Exception;
@@ -20,21 +21,24 @@ class ProductController extends Controller
     {
         $data=Product::paginate(10);
         $category = Category::get();
-        return view('backend.products.index',compact('data','category'));
+        $subcategory = Subcategory::get();
+        return view('backend.products.index',compact('data','category','subcategory'));
     }
 
     public function frontIndex()
     {
         $products = Product::paginate(10);
         $category = Category::get();
-        return view('frontend.product.index', compact('products', 'category'));
+        $subcategory = Subcategory::get();
+        return view('frontend.product.index', compact('products', 'category','subcategory'));
     }
 
      public function homeIndex()
     {
         $products = Product::paginate(10);
         $category = Category::get();
-        return view('frontend.home.index', compact('products', 'category'));
+        $subcategory = Subcategory::get();
+        return view('frontend.home.index', compact('products', 'category','subcategory'));
     }
 
     /**
@@ -43,8 +47,9 @@ class ProductController extends Controller
     public function create()
     {
         $category=Category::get();
+        $subcategory=Subcategory::get();
         $brand=Brand::get();
-        return view('backend.products.create',compact('category','brand'));
+        return view('backend.products.create',compact('category','brand','subcategory'));
     }
 
     /**
@@ -59,6 +64,7 @@ class ProductController extends Controller
                 $data->description=$request->description;
                 $data->short_description=$request->shortDescription;
                 $data->category_id=$request->categoryId;
+                $data->subcategory_id=$request->subcategoryId;
                 $data->brand_id=$request->brandId;
                 $data->price=$request->price;
                 $data->discount_type=$request->discountType;
@@ -99,6 +105,7 @@ class ProductController extends Controller
     public function edit(string $id)
     {
         $category=Category::get();
+        $subcategory=Subcategory::get();
         $brand=Brand::get();
         $product=Product::findOrFail(encryptor('decrypt',$id));
         return view('backend.products.edit',compact('product','category','brand'));
@@ -116,6 +123,7 @@ class ProductController extends Controller
                 $data->description=$request->description;
                 $data->short_description=$request->shortDescription;
                 $data->category_id=$request->categoryId;
+                $data->subcategory_id=$request->subcategoryId;
                 $data->brand_id=$request->brandId;
                 $data->price=$request->price;
                 $data->discount_type=$request->discountType;

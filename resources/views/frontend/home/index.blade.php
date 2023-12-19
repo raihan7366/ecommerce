@@ -295,7 +295,7 @@
 
                             <div class="product-body">
                                 <div class="product-cat">
-                                    <a href="#">{{ $product->category?->name_en }}</a>
+                                    <a href="#">{{ $product->subcategory?->subcatname_en }}</a>
                                 </div><!-- End .product-cat -->
                                 <h3 class="product-title"><a
                                         href="{{ route('productDetails') }}">{{ $product->name_en }}</a></h3>

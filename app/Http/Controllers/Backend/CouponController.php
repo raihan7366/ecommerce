@@ -61,7 +61,7 @@ class CouponController extends Controller
      */
     public function edit($id)
     {
-        $coupon = Coupon::findOrFail($id);
+        $coupon = Coupon::findOrFail(encryptor('decrypt',$id));
         return view('backend.coupon.edit', compact('coupon'));
     }
 
@@ -92,7 +92,7 @@ class CouponController extends Controller
      */
     public function destroy($id)
     {
-        $coupon = Coupon::findOrFail($id);
+        $coupon = Coupon::findOrFail(encryptor('decrypt',$id));
 
         if($coupon->delete())
         return redirect()->back()->with('error','Data Deleted');

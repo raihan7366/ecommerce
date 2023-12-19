@@ -49,8 +49,8 @@
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
                         <img class="rounded-circle" img
-                            src="{{ asset('public/uploads/users/' .request()->session()->get('image')) }}" alt=""
-                            style="width: 40px; height: 40px;">
+                            src="{{ asset('public/uploads/users/' .request()->session()->get('image')) }}"
+                            alt="" style="width: 40px; height: 40px;">
                         <div
                             class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
                         </div>
@@ -65,23 +65,26 @@
                             class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
 
                     <a href="{{ route('user.index') }}" class="nav-item nav-link "><i
-                            class="fa fa-user me-2"></i>User</a>
+                            class="ri-user-add-line me-2"></i>User</a>
 
 
                     <a href="{{ route('customers.index') }}" class="nav-item nav-link "><i
-                            class="fa fa-users me-2"></i>Customers</a>
+                            class="ri-team-line me-2"></i>Customers</a>
 
 
                     <a href="{{ route('categories.index') }}" class="nav-item nav-link "><i
-                            class="fa fa-sitemap me-2"></i>Category</a>
+                            class=" las la-vector-square me-2"></i>Category</a>
+
+                    <a href="{{ route('subcategories.index') }}" class="nav-item nav-link "><i
+                            class="  las la-sitemap me-2"></i>Sub-Category</a>
 
 
                     <a href="{{ route('brands.index') }}" class="nav-item nav-link "><i
-                            class="fa fa-crown me-2"></i>Brand</a>
+                            class="ri-vip-crown-2-line me-2"></i>Brand</a>
 
 
                     <a href="{{ route('products.index') }}" class="nav-item nav-link "><i
-                            class="fa fa-box me-2"></i>Product</a>
+                            class="las la-box me-2"></i>Product</a>
 
 
                     <a href="{{ route('orders.index') }}" class="nav-item nav-link "><i
