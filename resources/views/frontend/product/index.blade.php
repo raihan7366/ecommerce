@@ -91,9 +91,9 @@
                             </div>
                             <!-- End .row -->
                         </div><!-- End .products -->
+                        <div class="pagination justify-content-center">{{ $products->links() }}</div>
 
-
-                        <nav aria-label="Page navigation">
+                        {{-- <nav aria-label="Page navigation">
                             <ul class="pagination justify-content-center">
                                 <li class="page-item disabled">
                                     <a class="page-link page-link-prev" href="#" aria-label="Previous" tabindex="-1"
@@ -112,7 +112,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </nav>
+                        </nav> --}}
                     </div><!-- End .col-lg-9 -->
                     <aside class="col-lg-3 order-lg-first">
                         <div class="sidebar sidebar-shop">

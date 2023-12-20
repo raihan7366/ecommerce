@@ -27,7 +27,7 @@ class ProductController extends Controller
 
     public function frontIndex()
     {
-        $products = Product::paginate(10);
+        $products = Product::paginate(6);
         $category = Category::get();
         $subcategory = Subcategory::get();
         return view('frontend.product.index', compact('products', 'category','subcategory'));
@@ -35,7 +35,7 @@ class ProductController extends Controller
 
      public function homeIndex()
     {
-        $products = Product::paginate(10);
+        $products = Product::get();
         $category = Category::get();
         $subcategory = Subcategory::get();
         return view('frontend.home.index', compact('products', 'category','subcategory'));
@@ -108,7 +108,7 @@ class ProductController extends Controller
         $subcategory=Subcategory::get();
         $brand=Brand::get();
         $product=Product::findOrFail(encryptor('decrypt',$id));
-        return view('backend.products.edit',compact('product','category','brand'));
+        return view('backend.products.edit',compact('product','category','brand','subcategory'));
     }
 
     /**

@@ -104,14 +104,14 @@ class CartController extends Controller
         if (isset(session('cart_details')['coupon_code'])) {
             $cart_total = $total;
             $discount = ($cart_total * (session('cart_details')['discount'] / 100));
-            $tax = (($cart_total - $discount) * 0.15);
-            $total_amount = (($cart_total + $tax) - $discount);
+            // $tax = (($cart_total - $discount) * 0.15);
+            $total_amount = (($cart_total) - $discount);
             $coupondata = array(
                 'cart_total' => $cart_total,
                 'coupon_code' => session('cart_details')['coupon_code'],
                 'discount' => session('cart_details')['discount'],
                 'discount_amount' => $discount,
-                'tax' => $tax,
+                // 'tax' => $tax,
                 'total_amount' => $total_amount
             );
             session()->put('cart_details', $coupondata);

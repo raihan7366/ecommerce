@@ -109,8 +109,11 @@
                     <a href="{{ route('settings.index') }}" class="nav-item nav-link "><i
                             class="ri-user-settings-fill me-2"></i>Settings</a>
 
+                    <a href="{{ route('role.index') }}" class="nav-item nav-link"><i
+                            class=" las la-user-lock me-2"></i>Role</a>
 
-                    <div class="nav-item dropdown">
+
+                    {{-- <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
                                 class="fa fa-laptop me-2"></i>Elements</a>
                         <div class="dropdown-menu bg-transparent border-0">
@@ -130,9 +133,9 @@
                             <a href="signin.html" class="dropdown-item">Sign In</a>
                             <a href="signup.html" class="dropdown-item">Sign Up</a>
                             <a href="404.html" class="dropdown-item">404 Error</a>
-                            <a href="{{ route('role.index') }}" class="dropdown-item">Blank Page</a>
+                            <a href="{{ route('role.index') }}" class="mdi-account-lock-open-outline">Blank Page</a>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </nav>
         </div>
