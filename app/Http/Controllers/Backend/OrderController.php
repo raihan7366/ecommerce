@@ -83,16 +83,8 @@ class OrderController extends Controller
         {
             try{
                 $data=Order::findOrFail(encryptor('decrypt',$id));
-                $data->customer_id=$request->customerId;
-                $data->quantity=$request->quantity;
-                $data->sub_amount=$request->subAmount;
-                $data->discount=$request->discount;
-                $data->total_amount=$request->totalAmount;
-                $data->payment_status=$request->paymentStatus;
                 $data->delivery_status=$request->deliveryStatus;
-                $data->order_date=$request->order_date;
-                $data->delivery_date=$request->delivery_date;
-                
+                $data->delivery_date=$request->deliveryDate;
                 if($data->save())
                     return redirect()->route('orders.index')->with('success','Successfully saved');
                 else

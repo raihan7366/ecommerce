@@ -20,7 +20,7 @@ use App\Http\Controllers\Backend\ReviewController as reviews;
 use App\Http\Controllers\Backend\CouponController as coupon;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
-// use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\sslController as sslcz;
 
 use App\Http\Controllers\Customer\AuthController as cauth;
 
@@ -74,8 +74,10 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function () {
 Route::get('/dashboard', function () {
     return view('backend.authentication.login');
 });
-
-
+// ssl Routes
+Route::post('/payment/ssl/submit', [sslcz::class,'store'])->name('payment.ssl.submit');
+Route::post('/payment/ssl/notify', [sslcz::class, 'notify'])->name('payment.ssl.notify');
+Route::post('/payment/ssl/cancel', [sslcz::class, 'cancel'])->name('payment.ssl.cancel');
 
 // Route::get('/login', function () {
 //     return view('Customer/Auth/login')->name('login');
@@ -85,9 +87,9 @@ Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->name('dashboard');
 
-Route::get('/', function () {
-    return view('frontend/home/index');
-})->name('/');
+// Route::get('/', function () {
+//     return view('frontend/home/index');
+// })->name('/home');
 
 // Route::get('/login', function () {
 //     return view('Customer/Auth/login');
@@ -97,9 +99,9 @@ Route::get('/', function () {
 //     return view('Customer/Auth/register');
 // })->name('register');
 
-Route::get('/home', function () {
-    return view('frontend/home/index');
-})->name('home');
+// Route::get('/home', function () {
+//     return view('frontend/home/index');
+// })->name('home');
 
 Route::get('/product', function () {
     return view('frontend/product/index');
@@ -109,7 +111,7 @@ Route::get('/product', function () {
 Route::get('product', [products::class, 'frontIndex'])->name('product');
 
 // home
-Route::get('home', [products::class, 'homeIndex'])->name('home');
+Route::get('/', [products::class, 'homeIndex'])->name('home');
 
 
 Route::get('/about', function () {

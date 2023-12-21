@@ -17,7 +17,6 @@
                             <tr>
                                 <th scope="col">{{__('#SL')}}</th>
                                 <th scope="col">{{__('Customer Name')}}</th>
-                                <th scope="col">{{__('Quantity')}}</th>
                                 <th scope="col">{{__('Sub Amount')}}</th>
                                 <th scope="col">{{__('Discount')}}</th>
                                 <th scope="col">{{__('Total Amount')}}</th>
@@ -33,12 +32,25 @@
                             <tr>
                                 <th scope="row">{{ ++$loop->index }}</th>
                                 <td>{{$p->customer?->name_en}}</td>
-                                <td>{{$p->quantity}}</td>
                                 <td>{{$p->sub_amount}}</td>
                                 <td>{{$p->discount}}</td>
                                 <td>{{$p->total_amount}}</td>
-                                <td>{{$p->payment_status}}</td>
-                                <td>{{$p->delivery_status}}</td>
+                                <td>
+                                    @if($p->payment_status==0)
+                                        Not Paid
+                                    @else
+                                        Paid
+                                    @endif
+                                </td>
+                                <td>
+                                    @if($p->delivery_status==0)
+                                        Pending
+                                    @elseif($p->delivery_status==1)
+                                        Delivered
+                                    @else
+                                        Rejected
+                                    @endif
+                                </td>
                                 <td>{{$p->order_date}}</td>
                                 <td>{{$p->delivery_date}}</td>
                                 

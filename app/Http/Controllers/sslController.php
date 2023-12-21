@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Students;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\Customer;
+use App\Models\Customers;
 use App\Models\Payment;
 use App\Models\Enrollment;
+use App\Models\Order;
+use App\Models\OrderDetails;
 use App\Models\Checkout;
 use Illuminate\Support\Facades\Session;
 
@@ -14,22 +15,26 @@ class sslController extends Controller
 {
     public function store(Request $request)
     {
-        $user = Customer::findOrFail(currentUserId());
+        $user = Customers::findOrFail(encryptor('decrypt', request()->session()->get('CustomersId')));
         $txnid = "SSLCZ_TXN_" . uniqid();
         $item_amount = session('cart_details')['total_amount'];
 
         //$settings = Generalsetting::findOrFail(1);
         $cart_details = array('cart' => session('cart'), 'cart_details' => session('cart_details'));
-
+        // $cart_details=base64_encode(json_encode($cart_details));
+        // $ll=json_decode(base64_decode($cart_details));
+        // print_r($ll);
+        // die();
         $check = new Checkout;
         $check->cart_data = base64_encode(json_encode($cart_details));
-        $check->student_id = $user->id;
+        $check->customer_id = $user->id;
         $check->txnid = $txnid;
+        $check->order_note = $request->order_note;
         $check->status = 0;
         $check->save();
 
         $deposit = new Payment;
-        $deposit->student_id = $user->id;
+        $deposit->customer_id = $user->id;
         $deposit->currency = "BDT";
         $deposit->currency_code = "BDT";
         $deposit->amount = session('cart_details')['total_amount'];
@@ -54,7 +59,7 @@ class sslController extends Controller
         # CUSTOMER INFORMATION
         $post_data['cus_name'] = $user->name_en;
         $post_data['cus_email'] = $user->email;
-        $post_data['cus_add1'] = "2no Gate";
+        $post_data['cus_add1'] = $user->shipping_address;
         $post_data['cus_city'] = "Chattogram";
         $post_data['cus_state'] = "Chattogram";
         $post_data['cus_postcode'] = "4100";
@@ -83,11 +88,7 @@ class sslController extends Controller
 
 
         $content = curl_exec($handle);
-
         $code = curl_getinfo($handle, CURLINFO_HTTP_CODE);
-
-
-
 
         if ($code == 200 && !(curl_errno($handle))) {
             curl_close($handle);
@@ -118,9 +119,9 @@ class sslController extends Controller
     {
         $input = $request->all();
         $deposit = Payment::where('txnid', '=', $input['tran_id'])->orderBy('created_at', 'desc')->first();
-        $student = Student::findOrFail($deposit->student_id);
-        $this->setSession($student);
-        return redirect()->route('studentdashboard')->with('danger', 'Payment Cancelled.');
+        $customer = Customer::findOrFail($deposit->customer_id);
+        $this->setSession($customer);
+        return redirect()->route('home')->with('danger', 'Payment Cancelled.');
     }
 
 
@@ -135,38 +136,48 @@ class sslController extends Controller
             $check->status = 1;
             $check->save();
 
-            $student = Student::findOrFail($deposit->student_id);
-            $this->setSession($student);
+            $customer = Customers::findOrFail($deposit->customer_id);
+            $this->setSession($customer);
 
             $deposit->status = 1;
             $deposit->save();
 
             // store in transaction table
             if ($deposit->status == 1) {
-                foreach (json_decode(base64_decode($check->cart_data))->cart as $key => $course) {
-                    $enrole = new Enrollment;
-                    $enrole->student_id = $check->student_id;
-                    $enrole->course_id = $key;
-                    $enrole->enrollment_date = date('Y-m-d');
-                    $enrole->save();
+                $cart_details=json_decode(base64_decode($check->cart_data))->cart_details;
+                $order = new Order;
+                $order->customer_id = $check->customer_id;
+                $order->sub_amount = $cart_details->cart_total;
+                $order->discount = $cart_details->discount_amount;
+                $order->total_amount = $cart_details->total_amount;
+                $order->payment_status = "1";
+                $order->delivery_status = "0";
+                $order->order_date = date('Y-m-d');
+                $order->save();
+                foreach (json_decode(base64_decode($check->cart_data))->cart as $key => $c) {
+                    $data = new OrderDetails;
+                    $data->order_id = $order->id;
+                    $data->product_id = $key;
+                    $data->quantity = $c->quantity;
+                    $data->price = $c->price;
+                    $data->save();
                 }
             }
-            return redirect()->route('studentdashboard')->with('success', 'Payment done!');
+            return redirect()->route('home')->with('success', 'Payment done!');
         } else {
-            return redirect()->route('studentdashboard')->with('danger', 'Please try Again!');
+            return redirect()->route('home')->with('danger', 'Please try Again!');
         }
     }
 
-    public function setSession($student)
+    public function setSession($customers)
     {
-        return request()->session()->put(
-            [
-                'userId' => encryptor('encrypt', $student->id),
-                'userName' => encryptor('encrypt', $student->name_en),
-                'emailAddress' => encryptor('encrypt', $student->email),
-                'studentLogin' => 1,
-                'image' => $student->image ?? 'No Image Found'
-            ]
-        );
+        return request()->session()->put([
+            'CustomersId'=>encryptor('encrypt',$customers->id),
+            'CustomersName'=>encryptor('encrypt',$customers->name_en),
+            'CustomersEmail'=>encryptor('encrypt',$customers->email),
+            'customerLogin' => 1,
+            'image'=>$customers->image ?? 'no-image.png'
+        ]
+    );
     }
 }

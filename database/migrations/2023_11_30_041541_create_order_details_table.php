@@ -13,22 +13,8 @@ return new class extends Migration
     {
         Schema::create('order_details', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('product_name')->index();
-            $table->foreign('product_name')->references('id')->on('products')->onDelete('cascade');
-            $table->unsignedBigInteger('product_image')->index();
-            $table->foreign('product_image')->references('id')->on('products')->onDelete('cascade');
-            $table->unsignedBigInteger('product_category')->index();
-            $table->foreign('product_category')->references('id')->on('products')->onDelete('cascade');
-            $table->unsignedBigInteger('product_brand')->index();
-            $table->foreign('product_brand')->references('id')->on('products')->onDelete('cascade');
-
-            $table->unsignedBigInteger('order_discount')->index();
-            $table->foreign('order_discount')->references('id')->on('orders')->onDelete('cascade');
-            $table->unsignedBigInteger('order_total_amount')->index();
-            $table->foreign('order_total_amount')->references('id')->on('orders')->onDelete('cascade');
-            $table->unsignedBigInteger('order_sub_amount')->index();
-            $table->foreign('order_sub_amount')->references('id')->on('orders')->onDelete('cascade');
-            
+            $table->unsignedBigInteger('product_id')->index();
+            $table->unsignedBigInteger('order_id')->index();
             $table->decimal('quantity');
             $table->decimal('price',10,2);
             $table->timestamps();

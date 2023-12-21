@@ -12,4 +12,12 @@ class Order extends Model
     {
         return $this->hasMany(Stock::class);
     }
+    public function details()
+    {
+        return $this->hasMany(OrderDetails::class,'order_id');
+    }
+    public function customer()
+    {
+        return $this->belongsTo(Customers::class,'customer_id');
+    }
 }

@@ -13,18 +13,16 @@ return new class extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            
-            $table->unsignedBigInteger('customer_name_en')->index();
-            $table->foreign('customer_name_en')->references('id')->on('customers')->onDelete('cascade');
-            $table->unsignedBigInteger('customer_contact_no_en')->index();
-            $table->foreign('customer_contact_no_en')->references('id')->on('customers')->onDelete('cascade');
-            $table->unsignedBigInteger('customer_email')->index();
-            $table->foreign('customer_email')->references('id')->on('customers')->onDelete('cascade');
+            $table->unsignedBigInteger('customer_id')->index();
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
 
-            $table->string('transaction_no');
-            $table->integer('payment_type')->default(1)->comment('1=>Bkash 2=>card 3=>COD');
-            $table->string('card_no')->unique();
-            
+            $table->string('currency');
+            $table->string('currency_code');
+            $table->decimal('amount',10,2);
+            $table->string('currency_value');
+            $table->string('method');
+            $table->string('txnid');
+            $table->integer('status')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

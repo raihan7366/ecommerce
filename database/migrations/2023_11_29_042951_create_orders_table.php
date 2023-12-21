@@ -16,14 +16,13 @@ return new class extends Migration
 
             $table->unsignedBigInteger('customer_id')->index();
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
-            $table->integer('quantity');
             $table->decimal('sub_amount',10,2);
             $table->decimal('discount',10,2);
             $table->decimal('total_amount',10,2);
             $table->integer('payment_status')->default(1)->comment('1=>paid 2=>not paid');
             $table->integer('delivery_status')->default(1)->comment('1=>delivered 2=>not delivered');
-            $table->date('order_date');
-            $table->date('delivery_date');
+            $table->date('order_date')->nullable();
+            $table->date('delivery_date')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

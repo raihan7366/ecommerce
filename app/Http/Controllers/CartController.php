@@ -131,7 +131,7 @@ class CartController extends Controller
         if (!empty($coupon)) {
             $cart_total = session('cart_details')['cart_total'];
             $discount = ($cart_total * ($coupon[0] / 100));
-            $tax = (($cart_total - $discount) * 0.15);
+            $tax = 0;//(($cart_total - $discount) * 0.15);
             $total_amount = (($cart_total + $tax) - $discount);
             $coupondata = array(
                 'cart_total' => $cart_total,
