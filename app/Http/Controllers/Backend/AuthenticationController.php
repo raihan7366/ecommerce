@@ -15,7 +15,7 @@ use Exception;
 class AuthenticationController extends Controller
 {
     public function signUpForm(){
-        return view('backend.authentication.register');
+        return view('backend.Authentication.register');
     }
 
     public function signUpStore(SignupRequest $request){
