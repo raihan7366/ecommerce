@@ -186,7 +186,7 @@
         
 
             <div class="row">
-                <div class="col-lg-6 checkout-area-checkout">
+                {{-- <div class="col-lg-6 checkout-area-checkout">
                     <h6 class="checkout-area__label">Checkout</h6>
                     <div class="checkout-tab">
                         <div class="tab-content" id="pills-tabContent">
@@ -207,7 +207,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="col-lg-6 mt-4 mt-lg-0">
                     <div class="checkout-area-summery">
                         <h6 class="checkout-area__label">Summery</h6>
@@ -221,7 +221,7 @@
                                             @php $total += $details['price'] * $details['quantity'] @endphp
                                             <div class="productContent">
                                                 <div class="productContent-item__img productContent-item">
-                                                    <img src="{{ asset('public/uploads/courses/' . $details['image']) }}"
+                                                    <img src="{{ asset('public/uploads/products/' . $details['image']) }}"
                                                         alt="checkout" />
                                                 </div>
                                                 <div class="productContent-item__info productContent-item">
@@ -231,7 +231,7 @@
                                                     </h6>
                                                     <div class="price">
                                                         <h6 class="font-para--md">
-                                                            {{ $details['price'] ? '$' . $details['price'] : 'Free' }}
+                                                            {{ 'BDT' . number_format((float) session('cart_details')['total_amount'], 2) }}
                                                         </h6>
                                                         <p><del></del>
                                                         </p>

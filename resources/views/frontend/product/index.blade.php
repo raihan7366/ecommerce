@@ -68,7 +68,7 @@
                                                     <span class="ratings-text">( 0 Reviews )</span>
                                                 </div><!-- End .rating-container -->
 
-                                                <div class="product-nav product-nav-thumbs">
+                                                {{-- <div class="product-nav product-nav-thumbs">
                                                     <a href="#" class="active">
                                                         <img src="{{ asset('public/frontend/assets/images/products/product-4-thumb.jpg') }}"
                                                             alt="product desc">
@@ -82,7 +82,7 @@
                                                         <img src="{{ asset('public/frontend/assets/images/products/product-4-3-thumb.jpg') }}"
                                                             alt="product desc">
                                                     </a>
-                                                </div><!-- End .product-nav -->
+                                                </div><!-- End .product-nav --> --}}
                                             </div><!-- End .product-body -->
                                         </div><!-- End .product -->
                                     </div>

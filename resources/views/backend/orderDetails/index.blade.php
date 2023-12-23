@@ -20,11 +20,11 @@
                                 <th scope="col">{{__('Brand')}}</th>
                                 <th scope="col">{{__('Quantity')}}</th>
                                 <th scope="col">{{__('Price')}}</th>
-                                <th scope="col">{{__('Sub Amount')}}</th>
+                                {{-- <th scope="col">{{__('Sub Amount')}}</th>
                                 <th scope="col">{{__('Discount')}}</th>
-                                <th scope="col">{{__('Total Amount')}}</th>
+                                <th scope="col">{{__('Total Amount')}}</th> --}}
                                 
-                                <th class="white-space-nowrap">{{__('Action') }}
+                                {{-- <th class="white-space-nowrap">{{__('Action') }} --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -37,13 +37,13 @@
                                 <td>{{$p->product->brand?->name_en}}</td>
                                 <td>{{$p->quantity}}</td>
                                 <td>{{$p->price}}</td>
-                                <td>{{$p->order?->sub_amount}}</td>
+                                {{-- <td>{{$p->order?->sub_amount}}</td>
                                 <td>{{$p->order?->discount}}</td>
-                                <td>{{$p->order?->total_amount}}</td>
+                                <td>{{$p->order?->total_amount}}</td> --}}
                                
                                 
 
-                                <td class="white-space-nowrap">
+                                {{-- <td class="white-space-nowrap">
                                     <a href="{{route('orderdetails.edit',encryptor('encrypt',$p->id))}}">
                                         <i class="fa fa-edit"></i>
                                     </a>
@@ -57,7 +57,7 @@
                                                 <i class="fa fa-trash"></i></button>
                                         </a>
                                     </form>
-                                </td>
+                                </td> --}}
                             </tr>
                             @empty
                             <tr>

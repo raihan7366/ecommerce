@@ -96,8 +96,8 @@
                     <a href="{{ route('stocks.index') }}" class="nav-item nav-link "><i
                             class="las la-boxes me-2"></i>Stock</a>
 
-                    <a href="{{ route('payments.index') }}" class="nav-item nav-link "><i
-                            class="las la-money-check-alt me-2"></i>Payment</a>
+                    {{-- <a href="{{ route('payments.index') }}" class="nav-item nav-link "><i
+                            class="las la-money-check-alt me-2"></i>Payment</a> --}}
 
                     <a href="{{ route('reviews.index') }}" class="nav-item nav-link "><i
                             class="bx bxs-star-half me-2"></i>Reviews</a>
